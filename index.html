@@ -1,0 +1,399 @@
+﻿<!DOCTYPE html>
+<html lang="nb">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bjerke-Avisen 2007 - iPhone</title>
+    <style>
+      :root {
+        --paper: #f2eddf;
+        --ink: #111111;
+        --muted: #606060;
+        --line: #c8bfae;
+        --red: #b60005;
+        --sand: #ded4bf;
+      }
+
+      * { box-sizing: border-box; }
+
+      body {
+        margin: 0;
+        background:
+          repeating-linear-gradient(0deg, rgba(68, 58, 43, 0.025) 0, rgba(68, 58, 43, 0.025) 1px, transparent 1px, transparent 4px),
+          #cfc6b6;
+        color: var(--ink);
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 16px;
+      }
+
+      .page {
+        max-width: 1180px;
+        margin: 0 auto;
+        background: var(--paper);
+        border: 1px solid #aaa188;
+        border-top: 8px solid #242424;
+        box-shadow: 0 0 18px rgba(0, 0, 0, 0.22);
+        min-height: 100vh;
+      }
+
+      .masthead {
+        background: #efe8d8;
+        border-bottom: 5px solid var(--red);
+      }
+
+      .masthead-inner {
+        max-width: 1140px;
+        margin: 0 auto;
+        padding: 10px 18px 8px;
+        text-align: left;
+        border-bottom: 1px solid #7d765f;
+      }
+
+      .paper-name {
+        font-family: Georgia, "Times New Roman", serif;
+        font-size: clamp(2.8rem, 5vw, 5.4rem);
+        font-weight: 900;
+        line-height: 0.88;
+        letter-spacing: -0.065em;
+        text-transform: uppercase;
+        margin: 0;
+        text-shadow: 1px 1px 0 #ffffff;
+      }
+
+      .paper-sub {
+        font-size: 0.72rem;
+        letter-spacing: 0.16em;
+        text-transform: uppercase;
+        color: var(--muted);
+        margin: 8px 0 0;
+        border-top: 1px solid #a99f89;
+        padding-top: 5px;
+      }
+
+      .article {
+        max-width: 1140px;
+        margin: 0 auto;
+        padding: 18px 18px 44px;
+      }
+
+      .headline-wrap {
+        border-bottom: 4px solid var(--ink);
+        padding-bottom: 12px;
+        margin-bottom: 14px;
+      }
+
+      .kicker {
+        display: inline-block;
+        background: var(--red);
+        color: white;
+        font-size: 0.72rem;
+        letter-spacing: 0.16em;
+        text-transform: uppercase;
+        padding: 5px 9px;
+        font-weight: 700;
+      }
+
+      h1 {
+        font-family: Georgia, "Times New Roman", serif;
+        font-size: clamp(3rem, 6vw, 6.4rem);
+        line-height: 0.88;
+        margin: 10px 0 9px;
+        letter-spacing: -0.07em;
+        font-weight: 900;
+      }
+
+      .dekning {
+        font-family: Georgia, "Times New Roman", serif;
+        font-size: clamp(1.15rem, 1.8vw, 1.75rem);
+        line-height: 1.22;
+        color: #3a3a3a;
+        font-style: italic;
+        margin: 0;
+      }
+
+      .byline {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 18px;
+        padding: 8px 0 12px;
+        border-bottom: 1px solid var(--line);
+        font-family: Georgia, "Times New Roman", serif;
+        font-size: 0.75rem;
+        text-transform: uppercase;
+        letter-spacing: 0.07em;
+        color: var(--muted);
+      }
+
+      .content {
+        display: grid;
+        grid-template-columns: minmax(0, 2.15fr) minmax(230px, 0.85fr);
+        gap: 24px;
+        margin-top: 18px;
+      }
+
+      .main-column {
+        column-count: 1;
+        font-family: Georgia, "Times New Roman", serif;
+        font-size: 1.02rem;
+        line-height: 1.72;
+      }
+
+      .main-column h2 {
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 1.42rem;
+        line-height: 1.1;
+        margin: 1.45em 0 0.65em;
+        padding-bottom: 5px;
+        border-bottom: 2px solid var(--ink);
+        letter-spacing: -0.03em;
+        text-transform: uppercase;
+      }
+
+      .main-column h3 {
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 1.12rem;
+        margin: 1.2em 0 0.5em;
+        text-transform: uppercase;
+      }
+
+      .hero img,
+      .side-panel img {
+        filter: sepia(0.12) contrast(1.05) saturate(0.85);
+      }
+
+      .caption {
+        background: #d9cfba;
+        border-left: 5px solid var(--red);
+        border-top: 1px solid #afa58f;
+        font-family: Arial, Helvetica, sans-serif;
+      }
+
+      .side-panel {
+        background: #eee6d4;
+        border: 1px solid #aaa188;
+        border-top: 7px solid var(--ink);
+        padding: 14px 14px 8px;
+        height: fit-content;
+      }
+
+      .side-panel h3 {
+        border-bottom: 2px solid var(--red);
+        padding-bottom: 7px;
+      }
+
+      .facts {
+        border: 3px double #8f846b;
+        background: #e7dec8;
+        padding: 12px 14px;
+      }
+
+      .facts h3 {
+        border-bottom: 2px solid var(--red);
+        padding-bottom: 6px;
+      }
+
+      .pull-quote {
+        font-family: Georgia, "Times New Roman", serif;
+        border-top: 2px solid var(--red);
+        border-bottom: 2px solid var(--red);
+        border-left: 0;
+        padding: 12px 4px;
+        font-weight: 700;
+      }
+
+      @media (max-width: 820px) {
+        .paper-name {
+          font-size: 3rem;
+        }
+
+        .content {
+          grid-template-columns: 1fr;
+        }
+
+        .hero img {
+          height: 360px;
+        }
+
+        .side-panel {
+          order: 2;
+        }
+      }
+
+      @media (max-width: 520px) {
+        .page {
+          border-left: 0;
+          border-right: 0;
+        }
+
+        .article {
+          padding-left: 12px;
+          padding-right: 12px;
+        }
+
+        h1 {
+          font-size: 2.75rem;
+        }
+
+        .hero img {
+          height: 280px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="page">
+      <header class="masthead">
+        <div class="masthead-inner">
+          <p class="paper-name">Bjerke-Avisen</p>
+          <div class="paper-sub">Nyheter • Kultur • Teknologi • 2007</div>
+        </div>
+      </header>
+
+      <main class="article">
+        <div class="headline-wrap">
+          <span class="kicker">Teknologi</span>
+          <h1>NY TEKNOLOGI, NY FRAMTID</h1>
+          <p class="dekning">En iPhone – en blanding av tre ulike funksjoner, iPod, mobiltelefon og internett-kommunikasjon.</p>
+        </div>
+
+        <div class="byline">
+          <span>Januar 2007</span>
+          <span>Av Redaksjonen</span>
+          <span>San Francisco, California</span>
+        </div>
+
+        <div class="content">
+          <article class="main-column">
+            <div class="hero">
+              <img src="stevejobsholdetelefon.jpg" alt="Administrerende direktør av Apple Steve Jobs holder den nye iPhonen i San Francisco, California, 9. januar 2007." />
+              <div class="caption">Administrerende direktør av Apple Steve Jobs holder den nye iPhonen i San Francisco, California 9. januar 2007.</div>
+            </div>
+
+            <p class="lead">En bemerkelsesverdig oppdagelse fra det amerikanske firmaet Apple vekker nå internasjonal interesse. Dette produktet har potensialet for å kunne åpne døren for en helt ny måte å bruke teknologi på. kan dette være starten på en ny æra for moderne teknologi.</p>
+
+            <h2>EN OPPDAGELSE SOM ENDRER ALT</h2>
+            <p>I flere år har mennesker brukt forskjellige teknologier for seg selv som iPod, mobiltelefoner og internett på datamaskin, men nå har Apple kommet ut med et helt nytt produkt som samler egenskapene til disse enhetene og setter de sammen i en som kalles I Phone.</p>
+            <p>Det som gjør selve enheten spesiell er egenskapene for å kunne høre på musikk, surfe på internettet, og navigere gjennom telefonen med en berøringsfølsom skjerm. Dette utfordrer også hvordan mennesker tidligere har sett for seg og brukt teknologi.</p>
+
+            <h2>SLIK BE TEKNOLOGIEN UTVIKLET</h2>
+
+            <div class="hero">
+              <img src="stevejobsviseskjerm.jpg" alt="Steve Jobs demonstrerer hoved funksjonene til iPhonen under talen på Macworld Moscone Center i San Francisco 9.januar 2007" />
+              <div class="caption">Steve Jobs demonstrerer hoved funksjonene til iPhonen under talen på Macworld Moscone Center i San Francisco 9.januar 2007</div>
+            </div>
+
+            <p>Utviklingen til iPhonen bygges på teknologi som allerede har eksistert, som digitale musikkspillere og touch-skjermer. Disse touch-skjermene er ikke noe nytt, men apple har heller utvikler sin egen Multitouch teknologi. Dette gjorde det enklere å registrere flere berøringer samtidig. Brukeren kan derfor utføre handlinger direkte via fingerbevegelser, i stedet for fysiske knapper.</p>
+
+            <p>Gjennom testing av programvaren, maskinvaren og brukergrensesnitt til enheten har iPhone utviklet en enhet som kombinerer flere funksjoner i et kompaktformat.</p>
+
+            <h2>TEKNOLOGIVERDENEN REAGERER</h2>
+            <p>Lanseringen av produktet kan få betydning for hele markedet for bærbar elektronikk. Tidligere har andre produktet som musikkspillere vært laget for å kunne lagre og spille musikk. Nå har Apple bevegd seg og utviklet et produkt som kombinerer flere digitale funksjoner som folket er fornøyd over.</p>
+            <p>Apple-sjef Steve Jobs beskriver selv iPhonen under lanseringen, «These are not 3 sepparate devices, this one device, and we are calling it iPhone, Apple is going to reinvent the phone».</p>
+            <p>«iPhone is a revolutionary and magical product that is literally five years ahead of any other mobile» sier Steve Jobs. Dette viser de store forventningene Apple hart til produktet. iPhonen ifølge Steve Jobs ligger langt foran konkurrentene deres, men nå er det bare vente å se om iPhonen klarer å leve opp til forventingene.</p>
+
+            <h2>KAN DETTE FØRE TIL ET PARADIGMESKIFTE</h2>
+            <p>Den nye iPhone kan representere en viktig endring i hvordan mennesker tar i bruk elektroniske enheter.</p>
+            <p>Tidligere var mange digitale enheter vært avhengige av fysiske knapper og en begrensende funksjon. Med nye funksjonen Muli-Touch så introduseres en annet måte å navigere og kontrollere teknologien på.</p>
+            <p>Noe vi må tenke på er om iPhone kan endre måten mennesker samhandler med teknologi på. Hvis det er sånn at touch-skjermen skal erstatte de tidligere tastaturene og knapper på flere enheter, så kan dette vise en større endring enn kun lansering av iPhonen. De fleste funksjonene er ikke noe helt ukjent heller som kamera, internett og musikk for eksempel.</p>
+            <p>Dersom denne type brukergrensesnitt blir tatt i bruk av flere teknologiselskaper, kan det utfordre dagens etablerte løsninger.</p>
+            <p>Likevel er det for tidig for å vurdere og iPhonen kommer til å føre til et paradigmeskifte. Det framstår nå å se om denne teknologien blir til en standard i framtidens elektronikk bruk, eller om den vil være først og fremst være en videreutvikling av løsninger vi allerede kjenner til.</p>
+            <p>Et paradigmeskifte krever mer enn at en ny mobil lanseres. Det som er avgjørende er om iPhonen kan påvirke resten av bransjen og hvordan de utvikler produktene sine og blant annet få folket til å forvente endringer som dette i framtiden. Dette fører til en større endring og hvis det skjer så kan vi snakke om et mulig paradigmeskifte.</p>
+
+            <h2>HVORDAN KAN DETTE FORANDRE SAMFUNNET</h2>
+
+            <div class="hero">
+              <img src="iphonefra2007.jpg" alt="Den nye kombinerte Apple telefonen kjent som iPhone, med 3.5 tommers skjerm og fysisk hjem-knapp." />
+              <div class="caption">Den nye kombinerte Apple telefonen kjent som iPhone, med 3.5 tommers skjerm og fysisk hjem-knapp.</div>
+            </div>
+
+            <p>Denne nye teknologien kan få konsekvenser med blant annet musikkbransjen.</p>
+            <p>Det å sette sammen 3 enheter i en gjør at det blir enklere å kombinere underholdning, informasjon og kommunikasjon.</p>
+            <p>Det kan oppstå en del konkurrenter som baserer sitt nye produkt på iPhonen, produsenter kan utvikle lignende løsninger eller noe helt nytt for å holde tempo med utviklingen.</p>
+            <p>Et spørsmål vi må selv spørre er da, har folket egentlig bruk for så mange funksjoner i en enhet, og kommer dette til å påvirke avhengigheten av teknologi i hverdagen vår?</p>
+
+            <div class="facts">
+              <h3>Fakta om iPhonen</h3>
+              <table class="facts-table">
+                <tr><td>Presentert</td><td>09.januar.2007</td></tr>
+                <tr><td>Produsent</td><td>Apple</td></tr>
+                <tr><td>Skjerm</td><td>3,5 tommer</td></tr>
+                <tr><td>Lagringskapasitet</td><td>4GB / 8GB</td></tr>
+                <tr><td>Kamera</td><td>2 megapiksler</td></tr>
+                <tr><td>Hoved Funksjoner</td><td>nettleser, internett via Edge og Wifi, Google MAPs, musikkspiller</td></tr>
+              </table>
+            </div>
+
+            <h2>EN NY TEKNOLOGISK TIDSALDER</h2>
+            <p>Lanseringen av iPhone kan være begynnelsen på en ny vei i moderne teknologi. Apple viser med iPhone hvordan framtidens mobiltelefoner kan utvikles. Likevel er det bare å vente å se om denne nye teknologien kan føre til et teknologisk paradigme skifte, eller om det heller er en videre utvikling dagens løsning.</p>
+
+            <h2>IKKE ALLE ER IMPONERT</h2>
+            <p>Microsoft sjef, Steve Ballmer var meget kritisk til iPhone under et intervju med CNBC.</p>
+
+            <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; margin: 18px 0 8px; border: 3px double #8f846b; background: #000000;">
+              <iframe
+                src="https://www.youtube-nocookie.com/embed/eywi0h_Y5_U?rel=0&modestbranding=1"
+                title="Ballmer laughs at iPhone"
+                loading="lazy"
+                referrerpolicy="strict-origin-when-cross-origin"
+                style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0;"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowfullscreen>
+              </iframe>
+            </div>
+            <p style="font-family: Arial, Helvetica, sans-serif; font-size: 0.78rem; margin: 0 0 22px;">
+              <a href="https://www.youtube.com/watch?v=eywi0h_Y5_U" target="_blank" rel="noopener noreferrer" style="color: var(--red); font-weight: 700;">Åpne videoen på YouTube</a>
+            </p>
+
+            <p>« right now we are selling millions and millions and millions of phones a year. Apple is selling zero phones a year.», sa Ballmer under intervjuet.</p>
+            <p>Han kritiserte den høye prisen (500 dollar) og mangelen på et fysisk tastatur. Han mente at Apple kommer til å ha en stor utfordring dersom de skal konkurrere med andre mobilprodusenter.</p>
+            <p>Uenighetene som Steve Jobs og Steve Ballmer har, viser forskjellige sidene om hvordan ny teknologi kan vurderes. Steve Jobs har store forventninger og ser muligheter så stiller fortsatt Steve Ballmer spørsmål om iPhonen kan konkurrere med dagens teknologi.</p>
+
+            <h3>Referanser</h3>
+            <ul class="ref-list">
+              <li>allaboutstevejobs. (2007, januar 9). allaboutstevejobs.com. Hentet fra Macworld 2007: https://allaboutstevejobs.com/videos/keynotes/macworld_2007</li>
+              <li>Apple. (2007, januar 9). apple.com. Hentet fra newsroom: https://www.apple.com/no/newsroom/2007/01/09Apple-Reinvents-the-Phone-with-iPhone/</li>
+              <li>Apple. (2026). apple.com. Hentet fra newsroom: https://www.apple.com/newsroom/2007/01/09Apple-Reinvents-the-Phone-with-iPhone/</li>
+              <li>BuisnessInsider. (2007, januar). businessinsider.com. Hentet fra FLASHBACK: Steve Ballmer's First Take On The iPhone: https://www.businessinsider.com/flashback-steve-ballmers-first-take-on-the-iphone-september-22-2007-2010-6</li>
+              <li>Facebook. (2026, januar 9). facebook.com. Hentet fra TheBoardroom: https://www.facebook.com/TheBoardroom/videos/%EF%B8%8F-on-this-day-in-2007-steve-jobs-unveils-the-very-first-iphone-an-ipod-a-phone-a/1799743724059091/</li>
+              <li>MacWorld. (2007, januar 9). macworld.com. Hentet fra article: https://www.macworld.com/article/183052/liveupdate-15.html</li>
+              <li>networkworld. (2007, januar 9). networkworld.com. Hentet fra article: https://www.networkworld.com/article/837470/lan-wan-macworld-jobs-introduces-iphone-appletv.html</li>
+              <li>New york post. (2023, januar 9). https://nypost.com/. Hentet fra Us news: https://nypost.com/2023/01/09/on-this-day-in-history-jan-9-2007-steve-jobs-introduces-apple-iphone-at-macworld-in-san-francisco/</li>
+              <li>Open AI. (2026, november 9). ChatGPT.</li>
+              <li>smugmacgeek (Regissør). (2007). Ballmer laughs at iPhone [Film].</li>
+            </ul>
+          </article>
+
+          <aside class="side-panel">
+            <h3>Fakta om iPhonen</h3>
+            <ul class="side-list">
+              <li>
+                <strong>Presentert</strong>
+                <span>09.januar.2007</span>
+              </li>
+              <li>
+                <strong>Produsent</strong>
+                <span>Apple</span>
+              </li>
+              <li>
+                <strong>Skjerm</strong>
+                <span>3,5 tommer</span>
+              </li>
+              <li>
+                <strong>Lagringskapasitet</strong>
+                <span>4GB / 8GB</span>
+              </li>
+              <li>
+                <strong>Kamera</strong>
+                <span>2 megapiksler</span>
+              </li>
+              <li>
+                <strong>Hoved Funksjoner</strong>
+                <span>nettleser, internett via Edge og Wifi, Google MAPs, musikkspiller</span>
+              </li>
+            </ul>
+          </aside>
+        </div>
+      </main>
+    </div>
+  </body>
+</html>
